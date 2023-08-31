@@ -1,4 +1,4 @@
-import { MainWindow } from './main.window';
+import { MainWindow } from './windows/main.window';
 
 function main() {
   const win = new MainWindow();
