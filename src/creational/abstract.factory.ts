@@ -1,51 +1,70 @@
-export class EQsFactory {
-    private _eqsfactory: any;
-    
-    constructor() {
-        this._eqsfactory =[new FabFilter(5, "Pro Q"), new Waves(3, "Wave"), new UAD(4, "UAD")];
+export interface EQsFactory {
+    creatEQs(): AbstractEQ[];
+}
+
+export interface AbstractEQ {
+    bands: number;
+    name: string;
+    getBands(): number;
+    getName(): string;
+}
+
+export class EQ implements EQsFactory {
+    public creatEQs(): AbstractEQ[] {
+        return [new FabFilter(5, "Pro Q"), new Waves(3, "Wave"), new UAD(4, "UAD")]
     }
 }
 
-class EQ {
-    private bands: number;
-    private name: string
-    
+class FabFilter implements AbstractEQ{
+    bands: number;
+    name: string;
+
     constructor(bands: number, name: string) {
-        this.bands = bands;
         this.name = name;
+        this.bands = bands;
     }
 
     public getBands(): number {
         return this.bands;
     }
-}
 
-class FabFilter extends EQ {
-    constructor(bands: number, name: string) {
-        super(bands, name);
-    }
-
-    public getBands(): number {
-        return super.getBands();
+    public getName(): string {
+        return this.name;
     }
 }
 
-class Waves extends EQ {
+class Waves implements AbstractEQ {
+    bands: number;
+    name: string;
+
     constructor(bands: number, name: string) {
-        super(bands, name);
+        this.name = name;
+        this.bands = bands;
     }
 
     public getBands(): number {
-        return super.getBands();
+        return this.bands;
+    }
+
+    public getName(): string {
+        return this.name;
     }
 }
 
-class UAD extends EQ {
+class UAD implements AbstractEQ {
+    bands: number;
+    name: string;
+
     constructor(bands: number, name: string) {
-        super(bands, name);
+        this.name = name;
+        this.bands = bands;
     }
 
     public getBands(): number {
-        return super.getBands();
+        return this.bands;
+    }
+
+    public getName(): string {
+        return this.name;
     }
 }
