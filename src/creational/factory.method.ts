@@ -11,8 +11,8 @@ class EffectPlugin extends MyPlugin {
         this.type = "Effect";
     }
 
-    getType(type: string) {
-        return type
+    getType() {
+        return this.type
     }
 }
 
@@ -24,12 +24,12 @@ class SynthPlugin extends MyPlugin {
         this.type = "Synth";
     }
 
-    getType(type: string) {
-        return type
+    getType() {
+        return this.type
     }
 }
 
-class Creator {
+export class Creator {
     public static Factory(type: string) {
         switch(type) {
             case "Effect":
