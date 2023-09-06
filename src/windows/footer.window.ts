@@ -72,38 +72,6 @@ export class Footer extends QWidget {
         this.buttonRowLayout.addWidget(this.getFootersButton);
         this.rootViewLayout.addWidget(this.buttonRow);
 
-        const rootStyleSheet = `
-            #rootView {
-                padding: 5px;
-            }
-            #fieldset {
-                padding: 10px;
-                border: 2px ridge #bdbdbd;
-                margin-bottom: 4px;
-            }
-            #numsCharsRow {
-                flex-direction: row;
-            }
-            #numsCharsRow {
-                margin-bottom: 5px;
-            }
-            #numsCharsInput {
-                width: 100px;
-                margin-left: 2px;
-            }
-            #passOutput {
-                height: 85px;
-                margin-bottom: 4px;
-            }
-            #buttonRow{
-                margin-bottom: 5px;
-            }
-            #footersbutton {
-                width: 120px;
-                margin-right: 3px;
-            } 
-        `;
-
         super.setStyleSheet(rootStyleSheet);
         super.show();
     }
@@ -123,3 +91,35 @@ export class Footer extends QWidget {
     }
 
 }
+
+const rootStyleSheet = `
+    #rootView {
+        padding: 5px;
+    }
+    #fieldset {
+        padding: 10px;
+        border: 2px ridge #bdbdbd;
+        margin-bottom: 4px;
+    }
+    #numsCharsRow {
+        flex-direction: row;
+    }
+    #numsCharsRow {
+        margin-bottom: 5px;
+    }
+    #numsCharsInput {
+        width: 100px;
+        margin-left: 2px;
+    }
+    #passOutput {
+        height: 85px;
+        margin-bottom: 4px;
+    }
+    #buttonRow{
+        margin-bottom: 5px;
+    }
+    #footersbutton {
+        width: 120px;
+        margin-right: 3px;
+    } 
+`;
