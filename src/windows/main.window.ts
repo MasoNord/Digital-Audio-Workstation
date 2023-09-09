@@ -3,6 +3,7 @@ import { Extra } from './eqs.window';
 import { Footer } from './footer.window';
 import { Converter } from './converter.window';
 import { DecoratorWindow } from './decorator.window';
+import { RenderWindow } from './render.window';
 
 export class MainWindow extends QMainWindow{
     private static _instance: MainWindow;
@@ -13,10 +14,13 @@ export class MainWindow extends QMainWindow{
     private pluginButton?: QPushButton;
     private converterButton?: QPushButton;
     private decoratorButton?: QPushButton;
+    private renderButton?: QPushButton;
+    
     private extraWindow?: Extra;
     private footerWindow?: Footer;
     private converter?: Converter;
     private decorator?: DecoratorWindow;
+    private render?: RenderWindow;
 
     constructor() {
         super();
@@ -32,18 +36,19 @@ export class MainWindow extends QMainWindow{
         this.pluginButton = new QPushButton();
         this.converterButton = new QPushButton();
         this.decoratorButton = new QPushButton();
+        this.renderButton = new QPushButton();
 
         MainWindow.centralWidget.setObjectName("myroot");
         MainWindow.centralWidget.setLayout(this.rootLayout);
               
         this.eqsButton.setText("Open eqs window")
         this.eqsButton.addEventListener("clicked", () => {
-            this.create_window_eqs();
+            this.open_eqs_window();
         });
 
         this.pluginButton.setText("Open footer");
         this.pluginButton.addEventListener("clicked", () => {
-            this.create_window_plugin();
+            this.open_window_plugin();
         });
 
         this.converterButton.setText("Converter");
@@ -56,10 +61,16 @@ export class MainWindow extends QMainWindow{
             this.open_decorator_window();
         })
 
+        this.renderButton.setText("Render");
+        this.renderButton.addEventListener("clicked", () => {
+            this.open_render_window();
+        })
+
         this.rootLayout.addWidget(this.eqsButton);
         this.rootLayout.addWidget(this.pluginButton);
         this.rootLayout.addWidget(this.converterButton);
         this.rootLayout.addWidget(this.decoratorButton);
+        this.rootLayout.addWidget(this.renderButton);
         super.setCentralWidget(MainWindow.centralWidget);
         super.setStyleSheet(`
             #myroot {
@@ -70,10 +81,10 @@ export class MainWindow extends QMainWindow{
 
         return this;
     }
-    private create_window_eqs() {
+    private open_eqs_window() {
         this.extraWindow = new Extra();
     }
-    private create_window_plugin() {
+    private open_window_plugin() {
         this.footerWindow = new Footer();
     }
     private open_converte_window() {
@@ -81,5 +92,8 @@ export class MainWindow extends QMainWindow{
     }
     private open_decorator_window() {
         this.decorator = new DecoratorWindow();
+    }
+    private open_render_window() {
+        this.render = new RenderWindow();
     }
 }
