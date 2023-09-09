@@ -4,6 +4,7 @@ import { Footer } from './footer.window';
 import { Converter } from './converter.window';
 import { DecoratorWindow } from './decorator.window';
 import { RenderWindow } from './render.window';
+import { IteratorWindow } from './iterator.windwo';
 
 export class MainWindow extends QMainWindow{
     private static _instance: MainWindow;
@@ -15,12 +16,14 @@ export class MainWindow extends QMainWindow{
     private converterButton?: QPushButton;
     private decoratorButton?: QPushButton;
     private renderButton?: QPushButton;
+    private iteratorButton?: QPushButton;
     
     private extraWindow?: Extra;
     private footerWindow?: Footer;
     private converter?: Converter;
     private decorator?: DecoratorWindow;
     private render?: RenderWindow;
+    private iteratorWindow?: IteratorWindow; 
 
     constructor() {
         super();
@@ -29,14 +32,15 @@ export class MainWindow extends QMainWindow{
             return MainWindow._instance;
         }
         MainWindow._instance = this;
-        
         MainWindow.centralWidget = new QWidget();
+        
         this.rootLayout = new FlexLayout();
         this.eqsButton = new QPushButton();
         this.pluginButton = new QPushButton();
         this.converterButton = new QPushButton();
         this.decoratorButton = new QPushButton();
         this.renderButton = new QPushButton();
+        this.iteratorButton = new QPushButton();
 
         MainWindow.centralWidget.setObjectName("myroot");
         MainWindow.centralWidget.setLayout(this.rootLayout);
@@ -59,11 +63,16 @@ export class MainWindow extends QMainWindow{
         this.decoratorButton.setText("Decoretor");
         this.decoratorButton.addEventListener('clicked', () => {
             this.open_decorator_window();
-        })
+        });
 
         this.renderButton.setText("Render");
         this.renderButton.addEventListener("clicked", () => {
             this.open_render_window();
+        });
+
+        this.iteratorButton.setText('Iterator');
+        this.iteratorButton.addEventListener('clicked', () => {
+            this.open_iterator_window();
         })
 
         this.rootLayout.addWidget(this.eqsButton);
@@ -71,6 +80,8 @@ export class MainWindow extends QMainWindow{
         this.rootLayout.addWidget(this.converterButton);
         this.rootLayout.addWidget(this.decoratorButton);
         this.rootLayout.addWidget(this.renderButton);
+        this.rootLayout.addWidget(this.iteratorButton);
+
         super.setCentralWidget(MainWindow.centralWidget);
         super.setStyleSheet(`
             #myroot {
@@ -95,5 +106,8 @@ export class MainWindow extends QMainWindow{
     }
     private open_render_window() {
         this.render = new RenderWindow();
+    }
+    private open_iterator_window() {
+        this.iteratorWindow = new IteratorWindow();
     }
 }
