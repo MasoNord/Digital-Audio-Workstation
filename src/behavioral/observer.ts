@@ -1,6 +1,3 @@
-import { ContextReplacementPlugin } from "webpack";
-
-
 interface ObservableInterface {
     attach(observer: Observer): void;
 

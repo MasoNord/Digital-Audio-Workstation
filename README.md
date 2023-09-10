@@ -21,14 +21,6 @@ npm install
 npm start
 ```
 
-## Resources for Learning NodeGui
-
-- [docs.nodegui.org](https://nodegui.github.io/nodegui) - all of NodeGui and React Desktop's documentation
-
-## Packaging app as a distributable
-
-In order to distribute your finished app, you can use [@nodegui/packer](https://github.com/nodegui/packer)
-
 ### Step 1: (_**Run this command only once**_)
 
 ```sh

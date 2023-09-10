@@ -1,4 +1,4 @@
-import { CheckState, FlexLayout, QCheckBox, QLineEdit, QPushButton, QWidget } from "@nodegui/nodegui";
+import {FlexLayout, QCheckBox, QLineEdit, QPushButton, QWidget } from "@nodegui/nodegui";
 import { Render } from "../structural/facade";
 
 

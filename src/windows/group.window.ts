@@ -1,4 +1,4 @@
-import { FlexLayout, Orientation, QLabel, QProgressBar, QProgressDialog, QScrollBar, QSlider, QWidget, QWindow } from "@nodegui/nodegui";
+import { FlexLayout, Orientation, QLabel, QSlider, QWidget } from "@nodegui/nodegui";
 import { Compressor } from "../behavioral/observer";
 import { Kick } from "../behavioral/observer";
 

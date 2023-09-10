@@ -1,4 +1,4 @@
-import { FlexLayout, QCheckBox, QLabel, QLineEdit, QPlainTextEdit, QPushButton, QWidget } from "@nodegui/nodegui";
+import { FlexLayout, QLabel, QLineEdit, QPlainTextEdit, QPushButton, QWidget } from "@nodegui/nodegui";
 import { Creator} from "../creational/factory.method";
 
 export class Footer extends QWidget {

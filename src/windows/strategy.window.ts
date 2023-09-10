@@ -1,4 +1,4 @@
-import {FlexLayout, Key, QLabel, QPushButton, QWidget } from "@nodegui/nodegui";
+import {FlexLayout, QLabel, QPushButton, QWidget } from "@nodegui/nodegui";
 import { CleanSound, KeyScape, Mellotron, VintageSound } from "../behavioral/strategy";
 
 

@@ -1,4 +1,4 @@
-import { FlexLayout, QPlainTextEdit, QPushButton, QWidget} from "@nodegui/nodegui";
+import { FlexLayout, QPushButton, QWidget} from "@nodegui/nodegui";
 import { MyAudioTrack, AudioToMindiAdapter } from "../structural/adapter";
 
 export class Converter extends QWidget {

@@ -5,7 +5,6 @@ import { Converter } from './converter.window';
 import { DecoratorWindow } from './decorator.window';
 import { RenderWindow } from './render.window';
 import { IteratorWindow } from './iterator.windwo';
-import { Observable } from '../behavioral/observer';
 import { GroupWindow } from './group.window';
 import { StrategyWindow } from './strategy.window';
 
