@@ -5,6 +5,8 @@ import { Converter } from './converter.window';
 import { DecoratorWindow } from './decorator.window';
 import { RenderWindow } from './render.window';
 import { IteratorWindow } from './iterator.windwo';
+import { Observable } from '../behavioral/observer';
+import { GroupWindow } from './group.window';
 
 export class MainWindow extends QMainWindow{
     private static _instance: MainWindow;
@@ -17,13 +19,15 @@ export class MainWindow extends QMainWindow{
     private decoratorButton?: QPushButton;
     private renderButton?: QPushButton;
     private iteratorButton?: QPushButton;
+    private groupButton?: QPushButton;
     
     private extraWindow?: Extra;
     private footerWindow?: Footer;
     private converter?: Converter;
     private decorator?: DecoratorWindow;
     private render?: RenderWindow;
-    private iteratorWindow?: IteratorWindow; 
+    private iteratorWindow?: IteratorWindow;
+    private groupWindow?: GroupWindow;
 
     constructor() {
         super();
@@ -41,6 +45,7 @@ export class MainWindow extends QMainWindow{
         this.decoratorButton = new QPushButton();
         this.renderButton = new QPushButton();
         this.iteratorButton = new QPushButton();
+        this.groupButton = new QPushButton();
 
         MainWindow.centralWidget.setObjectName("myroot");
         MainWindow.centralWidget.setLayout(this.rootLayout);
@@ -73,6 +78,11 @@ export class MainWindow extends QMainWindow{
         this.iteratorButton.setText('Iterator');
         this.iteratorButton.addEventListener('clicked', () => {
             this.open_iterator_window();
+        });
+
+        this.groupButton.setText('Group');
+        this.groupButton.addEventListener('clicked', () => {
+            this.open_group_window();
         })
 
         this.rootLayout.addWidget(this.eqsButton);
@@ -81,6 +91,7 @@ export class MainWindow extends QMainWindow{
         this.rootLayout.addWidget(this.decoratorButton);
         this.rootLayout.addWidget(this.renderButton);
         this.rootLayout.addWidget(this.iteratorButton);
+        this.rootLayout.addWidget(this.groupButton);
 
         super.setCentralWidget(MainWindow.centralWidget);
         super.setStyleSheet(`
@@ -109,5 +120,8 @@ export class MainWindow extends QMainWindow{
     }
     private open_iterator_window() {
         this.iteratorWindow = new IteratorWindow();
+    }
+    private open_group_window() {
+        this.groupWindow = new GroupWindow()
     }
 }
