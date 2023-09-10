@@ -1,8 +1,8 @@
 {
-  "name": "nodegui-starter",
+  "name": "digitalaudioworkstation",
   "version": "1.0.0",
   "main": "index.js",
-  "author": "Atul R <atulanand94@gmail.com>",
+  "author": "mason trotf233@gmail.com",
   "license": "MIT",
   "private": true,
   "scripts": {
