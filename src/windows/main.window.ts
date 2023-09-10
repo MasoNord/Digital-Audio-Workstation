@@ -7,6 +7,7 @@ import { RenderWindow } from './render.window';
 import { IteratorWindow } from './iterator.windwo';
 import { Observable } from '../behavioral/observer';
 import { GroupWindow } from './group.window';
+import { StrategyWindow } from './strategy.window';
 
 export class MainWindow extends QMainWindow{
     private static _instance: MainWindow;
@@ -20,6 +21,7 @@ export class MainWindow extends QMainWindow{
     private renderButton?: QPushButton;
     private iteratorButton?: QPushButton;
     private groupButton?: QPushButton;
+    private strategyButton?: QPushButton;
     
     private extraWindow?: Extra;
     private footerWindow?: Footer;
@@ -28,6 +30,7 @@ export class MainWindow extends QMainWindow{
     private render?: RenderWindow;
     private iteratorWindow?: IteratorWindow;
     private groupWindow?: GroupWindow;
+    private strategyWindow?: StrategyWindow;
 
     constructor() {
         super();
@@ -46,6 +49,7 @@ export class MainWindow extends QMainWindow{
         this.renderButton = new QPushButton();
         this.iteratorButton = new QPushButton();
         this.groupButton = new QPushButton();
+        this.strategyButton = new QPushButton();
 
         MainWindow.centralWidget.setObjectName("myroot");
         MainWindow.centralWidget.setLayout(this.rootLayout);
@@ -85,6 +89,11 @@ export class MainWindow extends QMainWindow{
             this.open_group_window();
         })
 
+        this.strategyButton.setText('Strategy');
+        this.strategyButton.addEventListener('clicked', () => {
+            this.open_strategy_window();
+        })
+
         this.rootLayout.addWidget(this.eqsButton);
         this.rootLayout.addWidget(this.pluginButton);
         this.rootLayout.addWidget(this.converterButton);
@@ -92,6 +101,7 @@ export class MainWindow extends QMainWindow{
         this.rootLayout.addWidget(this.renderButton);
         this.rootLayout.addWidget(this.iteratorButton);
         this.rootLayout.addWidget(this.groupButton);
+        this.rootLayout.addWidget(this.strategyButton);
 
         super.setCentralWidget(MainWindow.centralWidget);
         super.setStyleSheet(`
@@ -123,5 +133,8 @@ export class MainWindow extends QMainWindow{
     }
     private open_group_window() {
         this.groupWindow = new GroupWindow()
+    }
+    private open_strategy_window() {
+        this.strategyWindow = new StrategyWindow();
     }
 }
