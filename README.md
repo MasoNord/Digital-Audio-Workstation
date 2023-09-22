@@ -1,6 +1,5 @@
-# nodegui-starter
-
-**Clone and run for a quick way to see NodeGui in action.**
+# Digital-Audio-Workstation
+This is implementation of a very simple digital audio workstation using 9 most popular design patterns.
 
 ## To Use
 
@@ -46,6 +45,29 @@ npx nodegui-packer --pack ./dist
 This will build the distributable using @nodegui/packer based on your template. The output of the command is found under the build directory. You should gitignore the build directory.
 
 More details about packer can be found here: https://github.com/nodegui/packer
+
+## Description
+So basically, this might sound like a great project, but in fact this is just simple app, with simple interface, behavior which does not do something similar to what name says about it. This is kind of educational project, where I wanted to show how to use the most popular design pattern in action
+
+We are gonna talk about 9 design pattern which is following:
+
+- Singleton
+
+- Abstract Factory
+
+- Iterator
+
+- Factory Method
+
+- Observer
+
+- Strategy
+
+- Adapter
+
+- Decorator
+
+- Facade
 
 ## License
 
